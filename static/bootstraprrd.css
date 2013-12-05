@@ -1,0 +1,40 @@
+/* BootstrapRRD 0.1.0 */
+
+body
+{
+    padding: 0 15px;
+}
+
+article.chart-box
+{
+    position: relative;
+}
+
+.chart-box .progress
+{
+    position: relative;
+    margin-bottom: 0;
+    width: 100px;
+    float: right;
+}
+
+.progress span
+{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chart-box .alert
+{
+    float: right;
+    padding-right: 14px;
+}
+
+.chart-box .chart
+{
+    height: 200px;
+    width: 90%;
+    margin: 0 auto;
+}
