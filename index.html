@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="BootstrapRRD" />
+    <meta name="robots" content="nofollow, noindex, noarchive" />
+    <title>BootstrapRRD</title>
+
+    <link href="static/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="static/bootstraprrd.css" rel="stylesheet" />
+    <script src="static/jquery.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+    <script src="static/jquery.flot.js"></script>
+    <script src="static/jquery.flot.stack.js"></script>
+    <script src="static/jquery.flot.time.js"></script>
+    <script src="static/jquery.flot.togglelegend.js"></script>
+    <script src="static/binaryXHR.js"></script>
+    <script src="static/rrdFile.js"></script>
+    <script src="static/rrdFlotSupport.js"></script>
+    <script src="static/bootstraprrd.js"></script>
+    <script src="static/config.js"></script>
+    <script>
+        !function($){$(document).ready(function()
+        {
+            BootstrapRRD.load(
+                CHART_TABS,
+                CHART_PANELS,
+                $('#range-control'),
+                $('#navigation'),
+                $('#sections')
+            );
+
+            /* setup static range for github page */
+            var form = $('form[name="range"]');
+            var from = $('input[name="fromCustom"]');
+            var to = $('input[name="toCustom"]');
+            var select = $('select[name="fromStandard"]');
+
+            from[0].valueAsNumber = 1383264000000;
+            to[0].valueAsNumber = 1385856000000;
+            select.val('custom');
+            form.submit();
+        });}(window.jQuery);
+    </script>
+</head>
+<body>
+    <section class="row" id="range-control">
+        <form name="range" method="POST">
+        <article class="col-md-10 col-md-offset-1 well" style="text-align: center;">
+            <section class="input-append input-prepend">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+                <input name="fromCustom" type="datetime-local" title="Time range start">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+                <input name="toCustom" type="datetime-local" title="Time range end">
+                <span class="add-on"><i class="icon-time"></i></span>
+                <select name="fromStandard" title="Commonly used ranges">
+                    <option>Just a placeholder</option>
+                </select>
+                <button type="submit" id="refresh" class="btn btn-xs" title="Refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+            </section>
+        </article>
+        </form>
+    </section>
+    <section class="row">
+        <nav class="col-md-10 col-md-offset-1">
+            <ul class="nav nav-pills nav-justified" id="navigation">
+                <li><a href="#Just_a_placeholder" data-toggle="tab">Just a placeholder</a></li>
+            </ul>
+        </nav>
+    </section>
+    <div id="sections" class="tab-content">
+        <section class="tab-pane fade in out active" id="changeMe1">
+            Just a placeholder
+        </section>
+    </div>
+</body>
+</html>
